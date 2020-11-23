@@ -1,0 +1,172 @@
+/** 
+\class DomainHumanTracking::Comm2dVectorCore
+
+Structure of Communication Object:
+- x: Double  = 0.0 
+- y: Double  = 0.0 
+
+\class DomainHumanTracking::Comm3dVectorCore
+
+Structure of Communication Object:
+- x: Double  = 0.0 
+- y: Double  = 0.0 
+- z: Double  = 0.0 
+
+\class DomainHumanTracking::CommJointDataCore
+
+Structure of Communication Object:
+- isJointTracked: DomainHumanTracking::JointTrackingStateType  = UNKNOWN 
+- jointPosition2D: DomainHumanTracking::Comm2dVector 
+- jointVelocity2D: DomainHumanTracking::Comm2dVector 
+- jointPosition3d: DomainHumanTracking::Comm3dVector 
+- jointVelocity3d: DomainHumanTracking::Comm3dVector 
+
+\class DomainHumanTracking::CommBodyDataCore
+
+Structure of Communication Object:
+- isTracked: Boolean  = false 
+- acquisitionTime: CommBasicObjects::CommTimeStamp 
+- leftHandState: DomainHumanTracking::HandTrackingStateType  = UNKNOWN 
+- rightHandState: DomainHumanTracking::HandTrackingStateType  = UNKNOWN 
+- jointData: DomainHumanTracking::CommJointData[*] 
+
+\class DomainHumanTracking::CommHumanPositionsAndVelocitiesCore
+
+Structure of Communication Object:
+- bodyData: DomainHumanTracking::CommBodyData[*] 
+
+\class DomainHumanTracking::CommHumanPositionsAndVelocitiesRequestCore
+
+Structure of Communication Object:
+- dummy: Boolean  = false 
+
+\class DomainHumanTracking::CommPredictedDataCore
+
+Structure of Communication Object:
+- valid: Boolean  = false 
+- xMaxLimit: Double  = 0.0 
+- xMinLimit: Double  = 0.0 
+- yMaxLimit: Double  = 0.0 
+- yMinLimit: Double  = 0.0 
+- zMaxLimit: Double  = 0.0 
+- zMinLimit: Double  = 0.0 
+
+\class DomainHumanTracking::CommHumanPositionPredictionsCore
+
+Structure of Communication Object:
+- predictedData: DomainHumanTracking::CommPredictedData[*] 
+
+\class DomainHumanTracking::CommHumanPositionPredictionsRequestCore
+
+Structure of Communication Object:
+- timeFrame: CommBasicObjects::CommTimeStamp 
+- frameOfReference: CommBasicObjects::CommPose3d 
+
+\class DomainHumanTracking::HandTrackingStateType
+
+Structure of Enumeration:
+- OPEN 
+- CLOSED 
+- NEUTRAL 
+- UNKNOWN 
+
+\class DomainHumanTracking::JointTrackingStateType
+
+Structure of Enumeration:
+- TRACKED 
+- INFERRED 
+- UNKNOWN 
+
+
+
+
+@defgroup DomainHumanTracking
+@ingroup commObjGroup
+@{
+\page DomainHumanTrackingPage DomainHumanTracking
+Class Reference: DomainHumanTracking
+<hr>
+
+@section Comm2dVector Comm2dVector
+- x: Double   = 0.0 
+- y: Double   = 0.0 
+
+Class Reference: DomainHumanTracking::Comm2dVectorCore
+<hr>
+@section Comm3dVector Comm3dVector
+- x: Double   = 0.0 
+- y: Double   = 0.0 
+- z: Double   = 0.0 
+
+Class Reference: DomainHumanTracking::Comm3dVectorCore
+<hr>
+@section CommJointData CommJointData
+- isJointTracked: @ref JointTrackingStateType (Enum)  = UNKNOWN 
+- jointPosition2D: @ref Comm2dVector (CommObj) 
+- jointVelocity2D: @ref Comm2dVector (CommObj) 
+- jointPosition3d: @ref Comm3dVector (CommObj) 
+- jointVelocity3d: @ref Comm3dVector (CommObj) 
+
+Class Reference: DomainHumanTracking::CommJointDataCore
+<hr>
+@section CommBodyData CommBodyData
+- isTracked: Boolean   = false 
+- acquisitionTime: @ref CommTimeStamp (CommObj) 
+- leftHandState: @ref HandTrackingStateType (Enum)  = UNKNOWN 
+- rightHandState: @ref HandTrackingStateType (Enum)  = UNKNOWN 
+- jointData: @ref CommJointData[*] (CommObj) 
+
+Class Reference: DomainHumanTracking::CommBodyDataCore
+<hr>
+@section CommHumanPositionsAndVelocities CommHumanPositionsAndVelocities
+- bodyData: @ref CommBodyData[*] (CommObj) 
+
+Class Reference: DomainHumanTracking::CommHumanPositionsAndVelocitiesCore
+<hr>
+@section CommHumanPositionsAndVelocitiesRequest CommHumanPositionsAndVelocitiesRequest
+- dummy: Boolean   = false 
+
+Class Reference: DomainHumanTracking::CommHumanPositionsAndVelocitiesRequestCore
+<hr>
+@section CommPredictedData CommPredictedData
+- valid: Boolean   = false 
+- xMaxLimit: Double   = 0.0 
+- xMinLimit: Double   = 0.0 
+- yMaxLimit: Double   = 0.0 
+- yMinLimit: Double   = 0.0 
+- zMaxLimit: Double   = 0.0 
+- zMinLimit: Double   = 0.0 
+
+Class Reference: DomainHumanTracking::CommPredictedDataCore
+<hr>
+@section CommHumanPositionPredictions CommHumanPositionPredictions
+- predictedData: @ref CommPredictedData[*] (CommObj) 
+
+Class Reference: DomainHumanTracking::CommHumanPositionPredictionsCore
+<hr>
+@section CommHumanPositionPredictionsRequest CommHumanPositionPredictionsRequest
+- timeFrame: @ref CommTimeStamp (CommObj) 
+- frameOfReference: @ref CommPose3d (CommObj) 
+
+Class Reference: DomainHumanTracking::CommHumanPositionPredictionsRequestCore
+<hr>
+@section HandTrackingStateType HandTrackingStateType
+- OPEN 
+- CLOSED 
+- NEUTRAL 
+- UNKNOWN 
+
+Class Reference: DomainHumanTracking::HandTrackingStateType
+<hr>
+@section JointTrackingStateType JointTrackingStateType
+- TRACKED 
+- INFERRED 
+- UNKNOWN 
+
+Class Reference: DomainHumanTracking::JointTrackingStateType
+<hr>
+
+
+@}
+*/
+

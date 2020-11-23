@@ -1,0 +1,31 @@
+#####################
+# internal parameters
+#####################
+##########################
+# InternalParameter configuration
+[configuration]
+decaySpeed 0.3
+
+##########################
+# InternalParameter sensorPosition
+[sensorPosition]
+azimuth 0.0
+elevation 0.0
+roll 0.0
+x 0.0
+y 0.0
+z 1.0
+
+##########################
+# InternalParameter settings
+[settings]
+debug_info true
+
+
+#####################
+# extended parameters
+#####################
+
+#####################
+# instance parameters
+#####################

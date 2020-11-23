@@ -1,0 +1,20 @@
+ComponentDefinition ComponentSimpleHumanBehaviourPredictor logo "/ComponentSimpleHumanBehaviourPredictor/model/logo.png"
+{
+InputPort HumanSkeletonsPushServiceIn implements DomainHumanTracking.HumanSkeletonsPushService {
+	}
+	Activity SimpleHumanPredictionActivity
+	{
+		InputPortLink HumanSkeletonsPushServiceIn { oversamplingOk undersamplingOk }
+	DefaultTrigger PeriodicTimer 30.0 Hz
+	}
+	OutputPort HumanPredictionsPushServiceOut implements DomainHumanTracking.HumanPredictionsPushService realizedBy SimpleHumanPredictionActivity {
+	}
+	AnswerPort HumanPredictionsRequestAnsw implements DomainHumanTracking.HumanPredictionsRequest {
+	}
+	RequestHandler HumanPredictionsRequestAnswHandler triggeredFrom HumanPredictionsRequestAnsw {
+	}
+	CoordinationSlavePort CoordinationPort implements CommBasicObjects.DefaultCoordinationService
+	{
+	}
+	ComponentParameters ComponentSimpleHumanBehaviourPredictorParams slave CoordinationPort
+}

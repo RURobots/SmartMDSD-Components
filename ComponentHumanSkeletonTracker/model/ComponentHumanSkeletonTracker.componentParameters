@@ -1,0 +1,24 @@
+ComponentParameter ComponentHumanSkeletonTrackerParams component ComponentHumanSkeletonTracker
+{
+	
+	InternalParameter settings{
+		debug_info: Boolean = true		// Enables debug output printing
+		display_images: Boolean = true	// Enables the display of the RGB and 
+										//depth input images
+	}
+	
+	InternalParameter config{		
+		score_threshold: Float = 0.1	// The detection score threshold for a
+										// "Tracked" joint
+		minimum_distance: Float = 0.01	// The minimum depth to be measured
+		maximum_distance: Float = 10.0	// THe maximum depth to be measured
+		maximum_velocity: Float = 3.0	// The maximum velocity that can be
+										// measured
+		maximum_bodies: UInt8 = 1		// The maximum number of people to detect
+										// (maximum: 6)
+		depth_region_size: UInt8 = 5	// The size of the region in pixels over
+										// which the depth is averaged	
+		model_folder: String = ""		// The location of the trained model data
+	}
+}
+

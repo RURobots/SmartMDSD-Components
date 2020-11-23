@@ -1,0 +1,27 @@
+ServiceDefRepository DomainHumanTracking version 1 . 0
+{
+
+	ForkingServiceDefinition HumanSkeletonsPushService {
+		PushPattern<DataType=DomainHumanTracking.CommHumanPositionsAndVelocities>
+	}
+	
+	RequestAnswerServiceDefinition HumanSkeletonsRequest {
+		QueryPattern < 
+			RequestType = 
+				DomainHumanTracking.CommHumanPositionsAndVelocitiesRequest 
+			AnswerType = DomainHumanTracking.CommHumanPositionsAndVelocities  
+		>
+	}
+	
+	ForkingServiceDefinition HumanPredictionsPushService {
+		PushPattern<DataType=DomainHumanTracking.CommHumanPositionPredictions>
+	}
+	
+	RequestAnswerServiceDefinition HumanPredictionsRequest {
+		QueryPattern < 
+			RequestType = DomainHumanTracking.CommHumanPositionPredictionsRequest 
+			AnswerType = DomainHumanTracking.CommHumanPositionPredictions 
+		>
+	}
+		
+}

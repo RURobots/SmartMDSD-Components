@@ -1,0 +1,98 @@
+#import CommBasicObjects.*;
+
+CommObjectsRepository DomainHumanTracking version 1 . 0
+{
+	CommObject Comm2dVector {
+		x: Double = 0.0
+		y: Double = 0.0
+	}
+	
+	CommObject Comm3dVector {
+		x: Double = 0.0
+		y: Double = 0.0
+		z: Double = 0.0
+	}
+	
+	Enumeration HandTrackingStateType {
+	// Represents the possible conditions that a hand can be in.
+		OPEN	// Hand is visible and it has been determined to be in the OPEN state
+		CLOSED	// Hand is visible and it has been determined to be in the CLOSED state
+		NEUTRAL	// Hand is visible and it has been determined to be neither OPEN nor
+			// CLOSED	
+		UNKNOWN	// Hand is not visible or the state of the hand cannot be determined
+	}
+	
+	Enumeration JointTrackingStateType {
+// Represents the possible conditions that a joint can be in.
+		TRACKED		// Joint has been detected and its position has been determined
+		INFERRED	// Joint has been detected and its position has been inferred
+				// from other joint and link measurements
+		UNKNOWN		// The joint is not visible and its positiion is unknown
+	}
+
+	CommObject CommJointData {
+	// Represents the state of a single human body joint
+		isJointTracked: JointTrackingStateType = UNKNOWN
+		jointPosition2D: Comm2dVector
+		jointVelocity2D: Comm2dVector
+		jointPosition3d: Comm3dVector
+		jointVelocity3d: Comm3dVector
+	}
+	
+	CommObject CommBodyData {
+	// Represents the state of a single human body comprising a collection of joints and
+	// two hands
+		isTracked: Boolean = false	// Indicates if this record contains information
+						// on a human body
+		
+		acquisitionTime: CommTimeStamp	// The time at which the human body data
+							// was acquired
+
+		leftHandState: HandTrackingStateType = UNKNOWN
+		rightHandState: HandTrackingStateType = UNKNOWN
+
+		jointData: CommJointData[*]		
+	}
+	
+	CommObject CommHumanPositionsAndVelocities {
+	// Represents the state of a collection of human bodies
+		bodyData: CommBodyData[*]
+	}	
+	
+	CommObject CommHumanPositionsAndVelocitiesRequest {
+	// Represents a request to determine the position and velocity from a human sensor
+		dummy: Boolean = false
+	}	
+	
+	CommObject CommPredictedData {
+	// Represents the volume of space that is predicted to be occupied by a single human
+	// during the requested time frame  
+		valid:	Boolean = false
+		xMaxLimit: Double = 0.0	// The x-axis limit of occupancy in the +ve 
+						// direction in the requested frame
+		xMinLimit: Double = 0.0	// The x-axis limit of occupancy in the -ve
+						// direction in the requested frame
+		yMaxLimit: Double = 0.0	// The y-axis limit of occupancy in the +ve
+						// direction in the requested frame
+		yMinLimit: Double = 0.0	// The y-axis limit of occupancy in the –ve
+						// direction in the requested frame
+		zMaxLimit: Double = 0.0	// The z-axis limit of occupancy in the +ve
+						// direction in the requested frame
+		zMinLimit: Double = 0.0	// The z-axis limit of occupancy in the –ve
+						// direction in the requested frame
+	}
+	
+	
+	CommObject CommHumanPositionPredictions {
+	// Represents the predicted occupancy for a collection of human bodies		
+		predictedData: CommPredictedData[*]
+	}
+	
+	CommObject CommHumanPositionPredictionsRequest {
+	// Represents a request to determine the predicted space occupancy of any humans
+	// detected over the specified time frame, represented in the given frame
+		timeFrame: CommTimeStamp
+		frameOfReference: CommPose3d
+	}	
+	
+}

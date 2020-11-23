@@ -1,0 +1,19 @@
+ComponentParameter ComponentSimpleHumanBehaviourPredictorParams component ComponentSimpleHumanBehaviourPredictor {
+	
+	InternalParameter settings{
+		debug_info: Boolean = true
+	}
+	
+	InternalParameter sensorPosition{
+		x: Double = 0.0
+		y: Double = 0.0
+		z: Double = 1.0
+		azimuth: Double = 0.0
+		elevation: Double = 0.0
+		roll: Double = 0.0
+	}
+	
+	InternalParameter configuration{
+		decaySpeed: Double  = 0.3
+	}
+}

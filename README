@@ -1,0 +1,5 @@
+This repository contains the SmartMDSD components and domains that were created under the EXAMFORA project of the RobMoSys Second Open Call.
+
+See the '.componentDocumentation' or '.domainDocumentation' file in the 'model' subdirectory of each component or domain for more instructions.
+
+This software is licenced under LGPL V3.  See COPYING and COPYING.LESSER for more details.

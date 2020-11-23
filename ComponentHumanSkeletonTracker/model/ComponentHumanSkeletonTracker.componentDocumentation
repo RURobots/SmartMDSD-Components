@@ -1,0 +1,68 @@
+ComponentDocumentation ComponentHumanSkeletonTracker {
+	License : "LGPL (some libraries have more restrictive licences)"
+	
+	HardwareRequirements : "None"
+	
+	Purpose :
+	"Component that determines the joint positions (the "skeleton") of any human	
+	bodies seen within a pair of rgb and depth images"
+	
+	Description :
+	"The Human Skeleton Tracker components receives a CommRGBDImage 3D image data
+	structure via a push service from a 3D sensor component such as the Kinect Server V2
+	components or the RealSense V2 Server component.  It then determines a skeleton
+	model (the position of joint nodes and the links between them) of of any humans with 
+	their field of view.
+	
+	It outputs the resulting skeletons simultaneously via both a push service and a query 
+	service for maximum flexibility.
+	
+	The relevant specification for the input ports are contained within DomainVision 
+	which is provided as part of the RobMoSys ecosystem.  The specification for the output
+	ports is provided within the DomainHumanTracking domain.
+	
+	Several piece of configuration data are required for the correct operation of this
+	component.
+	
+	The config.score_threshold parameter is used to specify the dection score that
+	causes a joint to be specified as "tracked".  A score below this level causes the 
+	joint to be specified as "inferred".
+	
+	There are also configuration parameters to turn on and off debug information printing
+	and the	display of the input images.
+	
+	The configuration data includes a float that is used to specify a threshold	value for
+	the joint position confidence.  Joint positions that are detected but have a 
+	lower confidence value than this threshold are given an "inferred" status in the 
+	output data.  Values are also specified for the maximum and minimum expected ranges
+	and the maximum joint velocity.  These values are used to filter out erroneous pose
+	estimates.  A configuration parameter is also used to specify the location of the
+	training model data in the file syste,  It is very important that this is given the
+	correct value."
+	
+	Dependencies : "
+	CommBasicObjects, 
+	DomainHumanTracking,
+	DomainVision,
+	openpose (and all its dependencies.  Note the commercial use licence restrictions),
+	opencv (and all its dependencies)
+	"
+	
+	Installation :
+	"The contents of this directory can be copied into the required location in the 
+	SmartMDSD workspace and then the component can be imported using the "Import->
+	File System" command from the SmartMDSD Project Explorer when in the Component
+	Perspective.
+
+	This component also requires that the openpose library and training data
+	(note the commercial use licence restrictions) must also be downloaded and
+	installed using the instructions at the following url: https://github.com/CMU-
+	Perceptual-Computing-Lab/openpose/find/master.
+
+	The instructions for installing the C++ API must be followed.  This installation will
+	require that OpenCV is also installed.
+	
+	To ensure that the performance of the software is fast enough, ensure that all
+	possible acceleration options are enabled for the graphics card that is in use,
+	i.e. openGL, cuda or openCL."
+}

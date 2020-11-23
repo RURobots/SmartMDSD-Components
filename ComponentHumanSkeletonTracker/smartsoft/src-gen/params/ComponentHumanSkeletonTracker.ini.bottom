@@ -1,0 +1,28 @@
+#####################
+# internal parameters
+#####################
+##########################
+# InternalParameter config
+[config]
+depth_region_size 5
+maximum_bodies 1
+maximum_distance 10.0
+maximum_velocity 3.0
+minimum_distance 0.01
+model_folder 
+score_threshold 0.1
+
+##########################
+# InternalParameter settings
+[settings]
+debug_info true
+display_images true
+
+
+#####################
+# extended parameters
+#####################
+
+#####################
+# instance parameters
+#####################

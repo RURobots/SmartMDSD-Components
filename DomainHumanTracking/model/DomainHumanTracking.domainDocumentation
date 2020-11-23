@@ -1,0 +1,63 @@
+DomainDocumentation DomainHumanTracking {
+	License : "LGPL"
+	
+	HardwareRequirements : "LGPL"
+	
+	Purpose :
+	"Provides communication types and services needed for human skeleton
+	tracking (3D pose estimation)"
+	
+	Description :
+	"DomainHumanTracking provides the types and services necessary for 
+	communicating information related to Human Skeleton Tracking (Human 3D Pose 
+	Estimation).
+	
+	It also includes communication types and services for communicating hand state (open, 
+	closed, etc.).
+	
+	The CommBodyData type declares an array of CommJointData objects to represent the
+	joints in the human body.  The correspondence between the joint name and the index
+	number is required to be as follows:
+	
+		Joint Name		  Index
+		----------		  -----
+		SpineBase			0
+		SpineMid			1
+		Neck				2
+		Head				3
+		ShoulderLeft		4
+		ElbowLeft			5
+		WristLeft			6
+		HandLeft			7
+		ShoulderRight		8
+		ElbowRight			9
+		WristRight			10
+		HandRight			11
+		HipLeft				12
+		KneeLeft  			13
+		AnkleLeft			14
+		FootLeft			15
+		HipRight  			16
+		KneeRight  			17
+		AnkleRight			18
+		FootRight  			19
+		SpineShoulder		20
+		HandTipLeft		  	21
+		ThumbLeft  			22
+		HandTipRight		23
+		ThumbRight			24
+		
+		
+	For maximum compatibility and ease of adoption, these joint indexes are in agreement
+	with the indexes adopted within the Microsoft Kinect Sensor SDK."
+	
+	Dependencies: "
+	CommBasicObjects"
+	"
+	
+	Installaton : 
+	"The contents of this directory can be copied into the required location in the 
+	SmartMDSD workspace and then the component can be imported using the "Import->
+	File System" command from the SmartMDSD Project Explorer when in the Component
+	Perspective."	
+}

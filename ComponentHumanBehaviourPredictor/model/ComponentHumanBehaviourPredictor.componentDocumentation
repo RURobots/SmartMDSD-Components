@@ -1,0 +1,33 @@
+ComponentDocumentation ComponentHumanBehaviourPredictor {
+	License : "LGPL"
+	
+	HardwareRequirements : "None"
+	
+	Purpose :
+	"Component that predicts the future space occupied by nearby humans based on 
+	human "skeleton" data"
+	
+	Description : "The Human Behaviour Predictor components receive skeleton data (via 
+	push notifications) from a Skeleton Tracker components. From this data the movement of 
+	the skeletons can be extrapolated to determine the extent of the space occupied by the 
+	human over a specified period of time. 
+	
+	In the case of this more sophisticated variant of the human behaviour predictor, the
+	predictions are based on the velocities of motion of each of the joint applied using
+	knowledge of the kinematics and joint limits of the human arm.
+	
+	The output from this component is sent on request via a client/server port and is in 
+	the form of the maximum and minimum extents of an occupancy region described in the 
+	specified reference frame."
+	
+	Dependencies : "
+	CommBasicObjects, 
+	DomainHumanTracking,
+ 	"
+	
+	Installation :
+	"The contents of this directory can be copied into the required location in the 
+	SmartMDSD workspace and then the component can be imported using the "Import->
+	File System" command from the SmartMDSD Project Explorer when in the Component
+	Perspective.
+}

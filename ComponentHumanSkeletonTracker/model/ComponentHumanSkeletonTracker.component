@@ -1,0 +1,22 @@
+ComponentDefinition ComponentHumanSkeletonTracker logo "/ComponentHumanSkeletonTracker/model/logo.png"
+{
+Activity FilterAndTrack
+	{
+		InputPortLink RGBDImagePushServiceIn { oversamplingOk undersamplingOk }
+	DefaultTrigger PeriodicTimer 1.0 Hz
+	}
+	OutputPort HumanSkeletonsPushServiceOut implements DomainHumanTracking.HumanSkeletonsPushService realizedBy FilterAndTrack {
+	}
+	InputPort RGBDImagePushServiceIn implements DomainVision.RGBDImagePushService {
+	}
+
+	CoordinationSlavePort CoordinationPort implements CommBasicObjects.DefaultCoordinationService
+	{
+	}
+
+	ComponentParameters ComponentHumanSkeletonTrackerParams slave CoordinationPort
+AnswerPort HumanSkeletonsRequestAnsw implements DomainHumanTracking.HumanSkeletonsRequest {
+	}
+	RequestHandler HumanSkeletonsRequestAnswHandler triggeredFrom HumanSkeletonsRequestAnsw {
+	}
+}
